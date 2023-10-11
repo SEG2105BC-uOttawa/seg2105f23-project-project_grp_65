@@ -3,3 +3,4 @@ Name: Alejandro Chong 			Student#: 300294352
 Name: Victoria Dorah            Student#: 300301395
 Name: Sherman Leung             Student#: 300284993
 Name: Roy Rui                   Student#: 300176548
+Name: Amélia Spacek             Student#: 300098540
