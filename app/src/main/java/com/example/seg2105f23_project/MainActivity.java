@@ -5,7 +5,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.*;
-import com.example.seg2105f23_project.ui.login.LoginActivity;
+//import com.example.seg2105f23_project.ui.login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
     private Button login;
