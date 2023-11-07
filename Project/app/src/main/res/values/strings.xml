@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Welcome to the Grimpeurs Cycling Club</string>
+    <string name="user_name">Username</string>
+    <string name="user_Role">Role</string>
+    <string name="user_Register">Register</string>
+    <string name="user_Welcome">Welcome</string>
+    <string name="radio_Admin">Administrator</string>
+    <string name="radio_Event_Organizer">Event Organizer</string>
+    <string name="radio_Participant">Participant</string>
+</resources>
