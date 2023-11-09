@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
         String UserName = UserNameInput.getText().toString();
         int Password = Integer.parseInt(PasswordInput.getText().toString());
 
-        register = findViewById(R.id.Register);
 
         if(findViewById(selectedRadioId) == adminRadio){ // If the radio Id of the
             Intent intent = new Intent(this, Administrator.class); // Open the Administrator activity

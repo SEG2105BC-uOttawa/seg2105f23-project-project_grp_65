@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 public class Administrator extends AppCompatActivity {
-    TextView NameUser; // Username Textview variable
+    TextView adminNameUser; // Username Textview variable
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,10 +18,10 @@ public class Administrator extends AppCompatActivity {
         String Username = intent.getStringExtra(MainActivity.TEXT);
         int Password = intent.getIntExtra(MainActivity.NUMBER,0);
 
-        NameUser = findViewById(R.id.Name_User);
+        adminNameUser = findViewById(R.id.Name_User);
 
         String message = "Welcome"+ Username+ "! You are logged in as an Aministrator."; //The message that the Textview shows
-        NameUser.setText(message); // Set the message of textview
+        adminNameUser.setText(message); // Set the message of textview
 
 
 
