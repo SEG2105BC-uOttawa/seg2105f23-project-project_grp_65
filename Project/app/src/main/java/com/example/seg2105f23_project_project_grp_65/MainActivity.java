@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 public class MainActivity extends AppCompatActivity {
     private Button register; // Variable for the button.
@@ -14,6 +16,10 @@ public class MainActivity extends AppCompatActivity {
     public static final String NUMBER = "com.example.seg2105f23_project_project_grp_65.EXTRA_NUMBER"; //
     EditText UserNameInput; // Variable for the User Name input
     EditText PasswordInput; // Variable for the Password input
+    RadioGroup radioGroup ; // Variable for the RadioGroup
+    RadioButton adminRadio; // Variable for the radioButton
+    RadioButton eventOrganiserRadio;
+    RadioButton participantRadio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,21 +28,43 @@ public class MainActivity extends AppCompatActivity {
 
         UserNameInput = findViewById(R.id.UsernameText); // Get the ID from the TextInput
         PasswordInput = findViewById(R.id.PasswordText); // Get the ID from the IntInput
+        radioGroup = findViewById(R.id.RadioMain); // Get the ID from the RadioGroup
+        adminRadio = findViewById(R.id.radioAdmin);// Get the ID from the admin radio button
+        eventOrganiserRadio = findViewById(R.id.radioEventOrganiser);// Get the ID from the eventOrganiser Radio Button
+        participantRadio =findViewById(R.id.radioParticipant);// Get the ID from the participant Radio Button
+
     }
     // This is the right Project
 
     // This method is to open MainActivity2
     //  Is the OnCreate method for the register button
     public void openActivity2(View view){
+        int selectedRadioId = radioGroup.getCheckedRadioButtonId();
         String UserName = UserNameInput.getText().toString();
         int Password = Integer.parseInt(PasswordInput.getText().toString());
 
         register = findViewById(R.id.Register);
 
-        Intent intent = new Intent(this, Administrator.class); // Open the Administrator activity
-        intent.putExtra(TEXT, UserName); // Pass the username variable to the administrator class
-        intent.putExtra(NUMBER, Password); // Pass the Password variable to the administrator class
-        startActivity(intent);
+        if(findViewById(selectedRadioId) == adminRadio){ // If the radio Id of the
+            Intent intent = new Intent(this, Administrator.class); // Open the Administrator activity
+            intent.putExtra(TEXT, UserName); // Pass the username variable to the administrator class
+            intent.putExtra(NUMBER, Password); // Pass the Password variable to the administrator class
+            startActivity(intent);
+        }
+        else if(findViewById(selectedRadioId) == eventOrganiserRadio){
+            Intent intent = new Intent(this, EventOrganiser.class); // Open the Administrator activity
+            intent.putExtra(TEXT, UserName); // Pass the username variable to the administrator class
+            intent.putExtra(NUMBER, Password); // Pass the Password variable to the administrator class
+            startActivity(intent);
+        }
+        else{
+            Intent intent = new Intent(this, Participant.class); // Open the Administrator activity
+            intent.putExtra(TEXT, UserName); // Pass the username variable to the administrator class
+            intent.putExtra(NUMBER, Password); // Pass the Password variable to the administrator class
+            startActivity(intent);
+        }
+
+
     }
 
 }

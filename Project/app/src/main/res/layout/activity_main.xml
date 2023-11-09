@@ -71,6 +71,7 @@
                 android:id="@+id/radioAdmin"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
+                android:checked="false"
                 android:text="@string/radio_Admin" />
 
             <RadioButton
