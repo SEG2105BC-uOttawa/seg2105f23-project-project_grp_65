@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         PasswordInput = findViewById(R.id.PasswordText); // Get the ID from the IntInput
         radioGroup = findViewById(R.id.RadioMain); // Get the ID from the RadioGroup
         adminRadio = findViewById(R.id.radioAdmin);// Get the ID from the admin radio button
-        eventOrganiserRadio = findViewById(R.id.radioEventOrganiser);// Get the ID from the eventOrganiser Radio Button
+        eventOrganiserRadio = findViewById(R.id.radioEventManage);// Get the ID from the eventOrganiser Radio Button
         participantRadio =findViewById(R.id.radioParticipant);// Get the ID from the participant Radio Button
 
     }

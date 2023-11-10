@@ -72,19 +72,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:checked="false"
-                android:text="@string/radio_Admin" />
+                android:text="@string/radio_Admin"
+                android:textSize="20sp" />
 
             <RadioButton
-                android:id="@+id/radioEventOrganiser"
+                android:id="@+id/radioEventManage"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="@string/radio_Event_Organizer" />
+                android:text="@string/radio_Event_Organizer"
+                android:textSize="20sp" />
 
             <RadioButton
                 android:id="@+id/radioParticipant"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="@string/radio_Participant" />
+                android:text="@string/radio_Participant"
+                android:textSize="20sp" />
         </RadioGroup>
 
         <Button

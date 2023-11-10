@@ -20,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginVertical="20dp"
             android:layout_marginStart="0dp"
             android:layout_marginTop="70dp"
             android:gravity="center"
@@ -28,16 +29,12 @@
             android:visibility="visible"
             tools:visibility="visible" />
 
-        <Space
-            android:id="@+id/space2"
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
-
         <TextView
             android:id="@+id/Choice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginVertical="5dp"
             android:layout_marginStart="0dp"
             android:layout_marginTop="70dp"
             android:gravity="center"
@@ -46,6 +43,68 @@
             android:textSize="20sp"
             android:visibility="visible"
             tools:visibility="visible" />
+
+        <RadioGroup
+            android:id="@+id/RadioMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/radioAccManage"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:checked="false"
+                android:text="@string/radio_AccManage"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/radioEventManage"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="@string/radio_EventManage"
+                android:textSize="20sp" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/Events"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginVertical="15dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="70dp"
+            android:gravity="center"
+            android:text="@string/Event_list"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+        <ListView
+            android:id="@+id/EventListView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
+        <TextView
+            android:id="@+id/events"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginVertical="15dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="70dp"
+            android:gravity="center"
+            android:text="@string/Acc_list"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+        <ListView
+            android:id="@+id/AccListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 
