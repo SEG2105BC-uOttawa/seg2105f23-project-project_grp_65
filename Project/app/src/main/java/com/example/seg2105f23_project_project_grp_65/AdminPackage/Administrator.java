@@ -1,10 +1,13 @@
-package com.example.seg2105f23_project_project_grp_65;
+package com.example.seg2105f23_project_project_grp_65.AdminPackage;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.example.seg2105f23_project_project_grp_65.MainActivity;
+import com.example.seg2105f23_project_project_grp_65.R;
 
 public class Administrator extends AppCompatActivity {
     TextView adminNameUser; // Username Textview variable
@@ -22,9 +25,7 @@ public class Administrator extends AppCompatActivity {
 
         String message = "Welcome"+ Username+ "! You are logged in as an Aministrator."; //The message that the Textview shows
         adminNameUser.setText(message); // Set the message of textview
-
-
-
     }
+
 
 }

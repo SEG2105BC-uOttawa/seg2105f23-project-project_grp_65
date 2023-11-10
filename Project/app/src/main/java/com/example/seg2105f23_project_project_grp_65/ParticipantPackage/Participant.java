@@ -1,10 +1,13 @@
-package com.example.seg2105f23_project_project_grp_65;
+package com.example.seg2105f23_project_project_grp_65.ParticipantPackage;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.example.seg2105f23_project_project_grp_65.MainActivity;
+import com.example.seg2105f23_project_project_grp_65.R;
 
 public class Participant extends AppCompatActivity {
     TextView participantNameUser; // Username Textview variable

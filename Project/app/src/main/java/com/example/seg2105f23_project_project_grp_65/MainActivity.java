@@ -10,6 +10,10 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.example.seg2105f23_project_project_grp_65.AdminPackage.Administrator;
+import com.example.seg2105f23_project_project_grp_65.EventOrganiserPackage.EventOrganiser;
+import com.example.seg2105f23_project_project_grp_65.ParticipantPackage.Participant;
+
 public class MainActivity extends AppCompatActivity {
     private Button register; // Variable for the button.
     public static final String TEXT = "com.example.seg2105f23_project_project_grp_65.EXTRA_TEXT"; // Variable for the text

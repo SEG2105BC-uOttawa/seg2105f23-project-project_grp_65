@@ -8,6 +8,7 @@
     <string name="radio_Event_Organizer">Event Organizer</string>
     <string name="radio_Participant">Participant</string>
     <string name="Admin">Welcome Administrator</string>
+    <string name="Admin_Choices">What do you want to do?</string>
     <string name="Event_Organizer">Welcome Event Participant</string>
     <string name="Participant">Welcome Participant</string>
 
