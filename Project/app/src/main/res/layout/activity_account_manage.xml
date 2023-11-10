@@ -15,7 +15,6 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/name_User"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -49,18 +48,17 @@
             android:layout_height="48dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:onClick="openActivity2"
             android:text="@string/Delete_Acc" />
 
         <androidx.appcompat.widget.SearchView
-            android:id="@+id/SearchAcc"
+            android:id="@+id/SearchAcc2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:iconifiedByDefault="false"
             app:queryHint="Search event" />
 
         <ListView
-            android:id="@+id/AccListView"
+            android:id="@+id/AccListView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

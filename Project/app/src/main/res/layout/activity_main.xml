@@ -45,7 +45,8 @@
             android:hint="@string/user_name"
             android:inputType="text"
             android:textAlignment="center"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:autofillHints="" />
 
         <Space
             android:id="@+id/space3"
@@ -60,10 +61,11 @@
             android:hint="@string/user_Password"
             android:inputType="text"
             android:textAlignment="center"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:autofillHints="" />
 
         <RadioGroup
-            android:id="@+id/RadioMain"
+            android:id="@+id/RadioMain2"
             android:layout_width="match_parent"
             android:layout_height="144dp">
 

@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
     EditText UserNameInput; // Variable for the User Name input
     EditText PasswordInput; // Variable for the Password input
     RadioGroup radioGroup ; // Variable for the RadioGroup
-    RadioButton adminRadio; // Variable for the radioButton
-    RadioButton eventOrganiserRadio;
-    RadioButton participantRadio;
+    RadioButton adminRadio; // Variable for the Admin radioButton
+    RadioButton eventOrganiserRadio; // Variable for the Event orginiser radioButton
+    RadioButton participantRadio; // Variable for the Participant radioButton
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         UserNameInput = findViewById(R.id.UsernameText); // Get the ID from the TextInput
         PasswordInput = findViewById(R.id.PasswordText); // Get the ID from the IntInput
-        radioGroup = findViewById(R.id.RadioMain); // Get the ID from the RadioGroup
+        radioGroup = findViewById(R.id.RadioMain2); // Get the ID from the RadioGroup
         adminRadio = findViewById(R.id.radioAdmin);// Get the ID from the admin radio button
         eventOrganiserRadio = findViewById(R.id.radioEventManage);// Get the ID from the eventOrganiser Radio Button
         participantRadio =findViewById(R.id.radioParticipant);// Get the ID from the participant Radio Button
@@ -43,9 +43,18 @@ public class MainActivity extends AppCompatActivity {
     // This method is to open MainActivity2
     //  Is the OnCreate method for the register button
     public void openActivity2(View view){
+        String UserName ="";
+        int Password =0;
         int selectedRadioId = radioGroup.getCheckedRadioButtonId();
-        String UserName = UserNameInput.getText().toString();
-        int Password = Integer.parseInt(PasswordInput.getText().toString());
+
+        if(UserNameInput.getText().toString().isEmpty()|| PasswordInput.getText().toString().isEmpty()){
+
+            System.out.println("yo mama");
+        }
+        else{
+         UserName = UserNameInput.getText().toString();
+         Password = Integer.parseInt(PasswordInput.getText().toString());
+        }
 
 
         if(findViewById(selectedRadioId) == adminRadio){ // If the radio Id of the

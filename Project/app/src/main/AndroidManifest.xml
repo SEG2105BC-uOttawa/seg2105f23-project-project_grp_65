@@ -26,8 +26,7 @@
             android:exported="false" />
         <activity
             android:name=".AdminPackage.Administrator"
-            android:exported="false"
-            android:parentActivityName=".MainActivity" /> <!-- This line is to make the administrator activity a "subclass" of MainActivity -->
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

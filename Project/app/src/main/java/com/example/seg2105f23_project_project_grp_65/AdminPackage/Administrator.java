@@ -21,7 +21,7 @@ public class Administrator extends AppCompatActivity {
         String Username = intent.getStringExtra(MainActivity.TEXT);
         int Password = intent.getIntExtra(MainActivity.NUMBER,0);
 
-        adminNameUser = findViewById(R.id.Name_User);
+        adminNameUser = findViewById(R.id.Name_User2);
 
         String message = "Welcome"+ Username+ "! You are logged in as an Aministrator."; //The message that the Textview shows
         adminNameUser.setText(message); // Set the message of textview
