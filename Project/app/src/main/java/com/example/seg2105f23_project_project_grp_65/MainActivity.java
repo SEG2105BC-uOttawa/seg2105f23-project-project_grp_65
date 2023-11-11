@@ -51,32 +51,28 @@ public class MainActivity extends AppCompatActivity {
 
             System.out.println("yo mama");
         }
-        else{
-         UserName = UserNameInput.getText().toString();
-         Password = Integer.parseInt(PasswordInput.getText().toString());
+        else {
+            UserName = UserNameInput.getText().toString();
+            Password = Integer.parseInt(PasswordInput.getText().toString());
+            if(findViewById(selectedRadioId) == adminRadio){ // If the radio Id of the
+                Intent intent = new Intent(this, Administrator.class); // Open the Administrator activity
+                intent.putExtra(TEXT, UserName); // Pass the username variable to the administrator class
+                intent.putExtra(NUMBER, Password); // Pass the Password variable to the administrator class
+                startActivity(intent);
+            }
+            else if(findViewById(selectedRadioId) == eventOrganiserRadio){
+                Intent intent = new Intent(this, EventOrganiser.class); // Open the Administrator activity
+                intent.putExtra(TEXT, UserName); // Pass the username variable to the administrator class
+                intent.putExtra(NUMBER, Password); // Pass the Password variable to the administrator class
+                startActivity(intent);
+            }
+            else{
+                Intent intent = new Intent(this, Participant.class); // Open the Administrator activity
+                intent.putExtra(TEXT, UserName); // Pass the username variable to the administrator class
+                intent.putExtra(NUMBER, Password); // Pass the Password variable to the administrator class
+                startActivity(intent);
+            }
         }
-
-
-        if(findViewById(selectedRadioId) == adminRadio){ // If the radio Id of the
-            Intent intent = new Intent(this, Administrator.class); // Open the Administrator activity
-            intent.putExtra(TEXT, UserName); // Pass the username variable to the administrator class
-            intent.putExtra(NUMBER, Password); // Pass the Password variable to the administrator class
-            startActivity(intent);
-        }
-        else if(findViewById(selectedRadioId) == eventOrganiserRadio){
-            Intent intent = new Intent(this, EventOrganiser.class); // Open the Administrator activity
-            intent.putExtra(TEXT, UserName); // Pass the username variable to the administrator class
-            intent.putExtra(NUMBER, Password); // Pass the Password variable to the administrator class
-            startActivity(intent);
-        }
-        else{
-            Intent intent = new Intent(this, Participant.class); // Open the Administrator activity
-            intent.putExtra(TEXT, UserName); // Pass the username variable to the administrator class
-            intent.putExtra(NUMBER, Password); // Pass the Password variable to the administrator class
-            startActivity(intent);
-        }
-
 
     }
-
 }
