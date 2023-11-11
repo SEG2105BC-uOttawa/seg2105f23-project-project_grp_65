@@ -93,12 +93,12 @@
         </RadioGroup>
 
         <Button
-            android:id="@+id/Register"
+            android:id="@+id/BtnRegister"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:onClick="openActivity2"
+
             android:text="@string/user_Register" />
 
     </LinearLayout>
