@@ -59,17 +59,15 @@ public class MainActivity extends AppCompatActivity {
                 Password = String.valueOf(PasswordInput.getText());
 
                 if(TextUtils.isEmpty(UserName)){
-                    Toast.makeText(MainActivity.this,"",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,"Please put a Username",Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(TextUtils.isEmpty(Password)){
-                    Toast.makeText(MainActivity.this,"",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,"Please put a Password",Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-
-                mAuth.createUserWithEmailAndPassword(UserName, Password)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                mAuth.createUserWithEmailAndPassword(UserName, Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
@@ -92,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
     // This method is to open MainActivity2
     //  Is the OnCreate method for the register button
 
-    public void openActivity2(View view){ // This is called by the oncreate
+    public void openActivity2(View view2){ // This is called by the oncreate
         String UserName, Password;
 
         UserName = String.valueOf(UserNameInput.getText());
@@ -121,6 +119,4 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
-
-
 }
