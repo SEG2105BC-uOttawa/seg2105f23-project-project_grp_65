@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
          register.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) { // Register button
                 String UserName, Password;
 
                 UserName = String.valueOf(UserNameInput.getText());
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
     // This method is to open MainActivity2
     //  Is the OnCreate method for the register button
 
-    public void openActivity2(View view){
+    public void openActivity2(View view){ // This is called by the oncreate
         String UserName, Password;
 
         UserName = String.valueOf(UserNameInput.getText());
