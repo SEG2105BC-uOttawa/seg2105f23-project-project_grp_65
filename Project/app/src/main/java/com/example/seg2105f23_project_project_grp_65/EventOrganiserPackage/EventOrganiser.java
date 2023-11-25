@@ -22,7 +22,7 @@ public class EventOrganiser extends AppCompatActivity {
         int Password = intent.getIntExtra(MainActivity.NUMBER,0);
 
         eventOrganiserNameUser = findViewById(R.id.Name_User2);
-        String message = "Welcome"+ Username+ "! You are logged in as an Event Organiser.";//The message that the Textview shows
+        String message = "Welcome "+ Username+ "! You are logged in as an Event Organiser.";//The message that the Textview shows
         eventOrganiserNameUser.setText(message); // Set the message of textview
     }
 }

@@ -20,7 +20,7 @@
             android:layout_height="90dp" />
 
         <TextView
-            android:id="@+id/Name_User"
+            android:id="@+id/Name_User_Login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -93,13 +93,26 @@
         </RadioGroup>
 
         <Button
-            android:id="@+id/BtnRegister"
+            android:id="@+id/BtnLogin"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_gravity="center"
             android:gravity="center"
 
             android:text="@string/user_Register" />
+
+        <TextView
+            android:id="@+id/ToLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="70dp"
+            android:gravity="center"
+            android:text="@string/Login_transfer"
+            android:textSize="20sp"
+            android:visibility="visible"
+            tools:visibility="visible" />
 
     </LinearLayout>
 

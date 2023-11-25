@@ -23,7 +23,7 @@ public class Participant extends AppCompatActivity {
         int Password = intent.getIntExtra(MainActivity.NUMBER,0);
 
         participantNameUser = findViewById(R.id.Name_User2);
-        String message = "Welcome"+ Username+ "! You are logged in as an Participant."; //The message that the Textview shows
+        String message = "Welcome "+ Username+ "! You are logged in as an Participant."; //The message that the Textview shows
         participantNameUser.setText(message); // Set the message of textview
 
     }

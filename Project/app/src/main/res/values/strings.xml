@@ -6,6 +6,9 @@
     <string name="user_Register">Register</string>
     <string name="user_Welcome">Welcome</string>
 
+    <string name="Login_btn">Login Button</string>
+    <string name="Login_transfer">To Login</string>
+
     <string name="radio_Admin">Administrator</string>
     <string name="radio_Event_Organizer">Event Organizer</string>
     <string name="radio_Participant">Participant</string>

@@ -6,12 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.seg2105f23_project_project_grp_65.AdminPackage.Administrator;
@@ -19,13 +19,14 @@ import com.example.seg2105f23_project_project_grp_65.EventOrganiserPackage.Event
 import com.example.seg2105f23_project_project_grp_65.ParticipantPackage.Participant;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.Firebase;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
-    Button register; // Variable for the button.
+    Button register; // Variable for the register button.
+    TextView ToLogIN;
     public static final String TEXT = "com.example.seg2105f23_project_project_grp_65.EXTRA_TEXT"; // Variable for the text
     public static final String NUMBER = "com.example.seg2105f23_project_project_grp_65.EXTRA_NUMBER"; //
     EditText UserNameInput; // Variable for the User Name input
@@ -36,19 +37,30 @@ public class MainActivity extends AppCompatActivity {
     RadioButton participantRadio; // Variable for the Participant radioButton
     FirebaseAuth mAuth;
 
+    // creating a variable for our
+    // Firebase Database.
+    FirebaseDatabase firebaseDatabase;
+
+    // creating a variable for our Database
+    // Reference for Firebase.
+    DatabaseReference databaseReference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         mAuth = FirebaseAuth.getInstance();
-        register = findViewById(R.id.BtnRegister);
+        register = findViewById(R.id.BtnLogin);
         UserNameInput = findViewById(R.id.UsernameText); // Get the ID from the TextInput
         PasswordInput = findViewById(R.id.PasswordText); // Get the ID from the IntInput
         radioGroup = findViewById(R.id.RadioMain2); // Get the ID from the RadioGroup
         adminRadio = findViewById(R.id.radioAdmin);// Get the ID from the admin radio button
         eventOrganiserRadio = findViewById(R.id.radioEventManage);// Get the ID from the eventOrganiser Radio Button
         participantRadio =findViewById(R.id.radioParticipant);// Get the ID from the participant Radio Button
+        ToLogIN = findViewById(R.id.ToLogin);
+
+        databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://seg2105-project-db-default-rtdb.firebaseio.com/");
 
          register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     Toast.makeText(MainActivity.this, "Account created",Toast.LENGTH_SHORT).show();
-                                    View View = null;
+                                    databaseReference.child("users").child(Password).child("Username").setValue(UserName);
                                     openActivity2(null);
                                 }
                                 else {
@@ -82,6 +94,12 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             }
                         });
+            }
+        });
+        ToLogIN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
