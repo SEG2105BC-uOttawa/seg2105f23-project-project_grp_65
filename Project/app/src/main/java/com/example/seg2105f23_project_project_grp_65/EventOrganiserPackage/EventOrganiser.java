@@ -19,7 +19,6 @@ public class EventOrganiser extends AppCompatActivity {
 
         Intent intent = getIntent(); // Gets the intent send from ActibityMain
         String Username = intent.getStringExtra(MainActivity.TEXT);
-        int Password = intent.getIntExtra(MainActivity.NUMBER,0);
 
         eventOrganiserNameUser = findViewById(R.id.Name_User2);
         String message = "Welcome "+ Username+ "! You are logged in as an Event Organiser.";//The message that the Textview shows

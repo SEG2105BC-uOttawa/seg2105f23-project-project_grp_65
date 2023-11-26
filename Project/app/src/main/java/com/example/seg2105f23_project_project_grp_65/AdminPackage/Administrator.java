@@ -17,9 +17,8 @@ public class Administrator extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_administrator);
 
-        Intent intent = getIntent(); // Gets the intent send from ActibityMain
+        Intent intent = getIntent(); // Gets the intent send from LogIn
         String Username = intent.getStringExtra(MainActivity.TEXT);
-        int Password = intent.getIntExtra(MainActivity.NUMBER,0);
 
         adminNameUser = findViewById(R.id.Name_User2);
 

@@ -3,6 +3,7 @@ package com.example.seg2105f23_project_project_grp_65;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -14,9 +15,6 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.seg2105f23_project_project_grp_65.AdminPackage.Administrator;
-import com.example.seg2105f23_project_project_grp_65.EventOrganiserPackage.EventOrganiser;
-import com.example.seg2105f23_project_project_grp_65.ParticipantPackage.Participant;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -25,10 +23,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
+    public static final String TEXT = "com.example.seg2105f23_project_project_grp_65.EXTRA_TEXT"; // Variable for the text
+
     Button register; // Variable for the register button.
     TextView ToLogIN;
-    public static final String TEXT = "com.example.seg2105f23_project_project_grp_65.EXTRA_TEXT"; // Variable for the text
-    public static final String NUMBER = "com.example.seg2105f23_project_project_grp_65.EXTRA_NUMBER"; //
     EditText UserNameInput; // Variable for the User Name input
     EditText PasswordInput; // Variable for the Password input
     RadioGroup radioGroup ; // Variable for the RadioGroup
@@ -51,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mAuth = FirebaseAuth.getInstance();
-        register = findViewById(R.id.BtnLogin);
+        register = findViewById(R.id.BtnRegister);
         UserNameInput = findViewById(R.id.UsernameText); // Get the ID from the TextInput
         PasswordInput = findViewById(R.id.PasswordText); // Get the ID from the IntInput
         radioGroup = findViewById(R.id.RadioMain2); // Get the ID from the RadioGroup
@@ -62,18 +60,19 @@ public class MainActivity extends AppCompatActivity {
 
         databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://seg2105-project-db-default-rtdb.firebaseio.com/");
 
-        String UserName, Password;
 
-        UserName = String.valueOf(UserNameInput.getText());
-        Password = String.valueOf(PasswordInput.getText());
 
 
          register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) { // Register button
+                String UserName, Password;
 
+                UserName = UserNameInput.getText().toString();
+                Password = PasswordInput.getText().toString();
 
                 if(TextUtils.isEmpty(UserName)){
+
                     Toast.makeText(MainActivity.this,"Please put a Username",Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -81,33 +80,37 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this,"Please put a Password",Toast.LENGTH_SHORT).show();
                     return;
                 }
-
-                mAuth.createUserWithEmailAndPassword(UserName, Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(MainActivity.this, "Account created",Toast.LENGTH_SHORT).show();
-                                    databaseReference.child("users").child(Password).child("Username").setValue(UserName);
-                                    openActivity2(null);
-                                }
-                                else {
-                                    // If sign in fails, display a message to the user.
-                                    Toast.makeText(MainActivity.this, "Authentication failed.",
-                                            Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
+                else{
+                    registerUser(UserName,Password);
+                }
             }
         });
         ToLogIN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, LogIn.class);
-                intent.putExtra(TEXT, UserName); // Pass the username variable to the administrator class
-                intent.putExtra(NUMBER, Password); // Pass the Password variable to the administrator class
                 startActivity(intent);
             }
         });
+    }
+
+    private void registerUser(String registerUserName, String registerPassword) {
+        mAuth.createUserWithEmailAndPassword(registerUserName, registerPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(MainActivity.this, "Account created",Toast.LENGTH_SHORT).show();
+                    databaseReference.child("users").child(registerPassword).child("Username").setValue(registerUserName);
+                    openActivity2(null);
+                }
+                else {
+                    // If sign in fails, display a message to the user.
+                    Toast.makeText(MainActivity.this, "Authentication failed.",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
     }
     // This is the right Project
 
@@ -115,31 +118,28 @@ public class MainActivity extends AppCompatActivity {
     //  Is the OnCreate method for the register button
 
     public void openActivity2(View view2){ // This is called by the oncreate
-        String UserName, Password;
+        String activity ="";
 
-        UserName = String.valueOf(UserNameInput.getText());
-        Password = String.valueOf(PasswordInput.getText());
         int selectedRadioId = radioGroup.getCheckedRadioButtonId();
 
         if(findViewById(selectedRadioId) == adminRadio){ // If the radio Id of the
-
-            Intent intent = new Intent(this, Administrator.class); // Open the Administrator activity
-            intent.putExtra(TEXT, UserName); // Pass the username variable to the administrator class
-            intent.putExtra(NUMBER, Password); // Pass the Password variable to the administrator class
+            activity = "admin";
+            Intent intent = new Intent(this, LogIn.class); // Open the Administrator activity
+            intent.putExtra(TEXT, activity); // Pass the username variable to the administrator class
             startActivity(intent);
 
         }
         else if(findViewById(selectedRadioId) == eventOrganiserRadio){
-            Intent intent = new Intent(this, EventOrganiser.class); // Open the Administrator activity
-            intent.putExtra(TEXT, UserName); // Pass the username variable to the administrator class
-            intent.putExtra(NUMBER, Password); // Pass the Password variable to the administrator class
+            activity = "eventOrganiser";
+            Intent intent = new Intent(this, LogIn.class); // Open the Administrator activity
+            intent.putExtra(TEXT, activity); // Pass the username variable to the administrator class
             startActivity(intent);
 
         }
         else{
-            Intent intent = new Intent(this, Participant.class); // Open the Administrator activity
-            intent.putExtra(TEXT, UserName); // Pass the username variable to the administrator class
-            intent.putExtra(NUMBER, Password); // Pass the Password variable to the administrator class
+            activity = "participant";
+            Intent intent = new Intent(this, LogIn.class); // Open the Administrator activity
+            intent.putExtra(TEXT, activity); // Pass the username variable to the administrator class
             startActivity(intent);
         }
     }
