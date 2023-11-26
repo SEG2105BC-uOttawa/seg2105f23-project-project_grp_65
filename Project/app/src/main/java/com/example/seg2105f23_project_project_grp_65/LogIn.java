@@ -21,8 +21,8 @@ public class LogIn extends AppCompatActivity {
         setContentView(R.layout.activity_log_in);
 
         Login = findViewById(R.id.BtnLogin);
-        UserNameInput2 = findViewById(R.id.UsernameText2); // Get the ID from the TextInput
-        PasswordInput2 = findViewById(R.id.PasswordText2); // Get the ID from the IntInput
+        UserNameInput2 = findViewById(R.id.LoginUsername); // Get the ID from the TextInput
+        PasswordInput2 = findViewById(R.id.LoginPassword); // Get the ID from the IntInput
 
         Login.setOnClickListener(new View.OnClickListener() {
             @Override

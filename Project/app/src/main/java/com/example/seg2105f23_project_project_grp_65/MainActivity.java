@@ -62,19 +62,22 @@ public class MainActivity extends AppCompatActivity {
 
         databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://seg2105-project-db-default-rtdb.firebaseio.com/");
 
+        String UserName, Password;
+
+        UserName = String.valueOf(UserNameInput.getText());
+        Password = String.valueOf(PasswordInput.getText());
+
+
          register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) { // Register button
-                String UserName, Password;
 
-                UserName = String.valueOf(UserNameInput.getText());
-                Password = String.valueOf(PasswordInput.getText());
 
                 if(TextUtils.isEmpty(UserName)){
                     Toast.makeText(MainActivity.this,"Please put a Username",Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(TextUtils.isEmpty(Password)){
+                else if(TextUtils.isEmpty(Password)){
                     Toast.makeText(MainActivity.this,"Please put a Password",Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -99,7 +102,10 @@ public class MainActivity extends AppCompatActivity {
         ToLogIN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                Intent intent = new Intent(MainActivity.this, LogIn.class);
+                intent.putExtra(TEXT, UserName); // Pass the username variable to the administrator class
+                intent.putExtra(NUMBER, Password); // Pass the Password variable to the administrator class
+                startActivity(intent);
             }
         });
     }

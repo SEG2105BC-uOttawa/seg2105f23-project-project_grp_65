@@ -14,11 +14,6 @@
         android:layout_alignParentTop="true"
         android:orientation="vertical">
 
-        <Space
-            android:id="@+id/space1"
-            android:layout_width="match_parent"
-            android:layout_height="90dp" />
-
         <TextView
             android:id="@+id/Name_User_Login"
             android:layout_width="match_parent"
@@ -97,8 +92,10 @@
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_gravity="center"
-            android:gravity="center"
+            android:layout_marginTop="0dp"
 
+            android:layout_marginBottom="0dp"
+            android:gravity="center"
             android:text="@string/user_Register" />
 
         <TextView
@@ -107,7 +104,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="0dp"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="20dp"
             android:gravity="center"
             android:text="@string/Login_transfer"
             android:textSize="20sp"

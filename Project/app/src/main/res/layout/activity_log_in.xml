@@ -14,10 +14,6 @@
         android:layout_alignParentTop="true"
         android:orientation="vertical">
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="90dp" />
-
         <TextView
             android:id="@+id/Name_User_Login"
             android:layout_width="match_parent"
@@ -36,7 +32,7 @@
             android:layout_height="20dp" />
 
         <EditText
-            android:id="@+id/UsernameText2"
+            android:id="@+id/LoginUsername"
             android:layout_width="match_parent"
             android:layout_height="90dp"
             android:autofillHints=""
@@ -51,7 +47,7 @@
             android:layout_height="20dp" />
 
         <EditText
-            android:id="@+id/PasswordText2"
+            android:id="@+id/LoginPassword"
             android:layout_width="match_parent"
             android:layout_height="90dp"
             android:autofillHints=""
