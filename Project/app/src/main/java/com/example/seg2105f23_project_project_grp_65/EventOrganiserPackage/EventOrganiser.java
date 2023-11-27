@@ -17,7 +17,7 @@ public class EventOrganiser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_organiser);
 
-        Intent intent = getIntent(); // Gets the intent send from ActibityMain
+        Intent intent = getIntent(); // Gets the intent send from ActivityMain
         String Username = intent.getStringExtra(MainActivity.TEXT);
         int Password = intent.getIntExtra(MainActivity.NUMBER,0);
 
