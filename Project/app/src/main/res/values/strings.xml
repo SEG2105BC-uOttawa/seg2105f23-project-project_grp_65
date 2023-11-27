@@ -25,11 +25,11 @@
     <string name="Acc_list">Account List</string>
     <string name="Delete_Acc">Delete Account</string>
 
-    <string name="radio_AccManage">Manage your accounts</string>
+    <string name="radio_AccManage">Manage your Accounts</string>
     <string name="radio_EventManage">Manage your Events</string>
 
-    <string name="Event_Organizer">Welcome Event Participant</string>
-    <string name="Add_event">Add event</string>
+    <string name="Event_Organizer">Welcome Event Organizer!</string>
+    <string name="Add_event">Add Events</string>
 
 
     <string name="Participant">Welcome Participant</string>
