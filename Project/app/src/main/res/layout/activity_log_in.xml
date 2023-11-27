@@ -32,15 +32,15 @@
             android:layout_height="20dp" />
 
         <EditText
-            android:id="@+id/LoginUsername"
-            android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="@string/user_name"
-            android:inputType="text"
-            android:textAlignment="center"
-            android:textSize="22sp" />
+                android:id="@+id/LoginUsername"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/Email"
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="22sp"/>
 
         <Space
             android:layout_width="match_parent"

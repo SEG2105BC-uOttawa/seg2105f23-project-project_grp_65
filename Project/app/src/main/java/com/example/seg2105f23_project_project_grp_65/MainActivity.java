@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button register; // Variable for the register button.
     TextView ToLogIN;
+    Button LogInButton;
     EditText UserNameInput; // Variable for the User Name input
     EditText PasswordInput; // Variable for the Password input
     RadioGroup radioGroup ; // Variable for the RadioGroup
@@ -56,7 +57,8 @@ public class MainActivity extends AppCompatActivity {
         adminRadio = findViewById(R.id.radioAdmin);// Get the ID from the admin radio button
         eventOrganiserRadio = findViewById(R.id.radioEventManage);// Get the ID from the eventOrganiser Radio Button
         participantRadio =findViewById(R.id.radioParticipant);// Get the ID from the participant Radio Button
-        ToLogIN = findViewById(R.id.ToLogin);
+
+        LogInButton = findViewById(R.id.LoginButton);
 
         databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://seg2105-project-db-default-rtdb.firebaseio.com/");
 
@@ -85,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        ToLogIN.setOnClickListener(new View.OnClickListener() {
+        LogInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, LogIn.class);
