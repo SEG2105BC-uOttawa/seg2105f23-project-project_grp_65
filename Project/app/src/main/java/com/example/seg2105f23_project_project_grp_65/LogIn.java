@@ -22,6 +22,8 @@ import java.util.Objects;
 public class LogIn extends AppCompatActivity {
     public static final String TEXT = "com.example.seg2105f23_project_project_grp_65.EXTRA_TEXT"; // Variable for the text
     Button Login; // Variable for the login button.
+
+    Button toRegisterMenu;
     EditText UserNameInput2; // Variable for the User Name input
     EditText PasswordInput2; // Variable for the Password input
     FirebaseAuth auth;
@@ -32,6 +34,7 @@ public class LogIn extends AppCompatActivity {
         setContentView(R.layout.activity_log_in);
 
         Login = findViewById(R.id.BtnLogin);
+        toRegisterMenu = findViewById(R.id.toRegisterMenuButton);
         UserNameInput2 = findViewById(R.id.LoginUsername); // Get the ID from the TextInput
         PasswordInput2 = findViewById(R.id.LoginPassword); // Get the ID from the IntInput
         auth = FirebaseAuth.getInstance();
@@ -46,6 +49,14 @@ public class LogIn extends AppCompatActivity {
                 UserName = UserNameInput2.getText().toString();
                 Password = PasswordInput2.getText().toString();
                 loginUser(UserName,Password, activity);
+            }
+        });
+
+        toRegisterMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent switchToLogin = new Intent(LogIn.this, MainActivity.class);
+                startActivity(switchToLogin);
             }
         });
 
