@@ -18,6 +18,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class LogIn extends AppCompatActivity {
     public static final String TEXT = "com.example.seg2105f23_project_project_grp_65.EXTRA_TEXT"; // Variable for the text
@@ -71,7 +73,24 @@ public class LogIn extends AppCompatActivity {
             Toast.makeText(LogIn.this,"Please put a Password",Toast.LENGTH_SHORT).show();
             return;
         }
-        auth.signInWithEmailAndPassword(UserName, Password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+
+        //Check if user inputs a valid email format username
+        String regex = "^[a-zA-Z0-9_]+[a-zA-Z0-9_.]*@[a-zA-Z0-9_-]+\\.[a-zA-Z0-9-.]+$";
+        Pattern pattern = Pattern.compile(regex, Pattern.UNICODE_CASE);
+        Matcher matcher = pattern.matcher(UserName);
+
+        String definedRegisterUserName;
+
+        //If so, continue to pass the registerUserName string
+        if (matcher.matches()) {
+            definedRegisterUserName=UserName;
+        }
+        //If not, create a dummy email suffix to login, since firebase only accept username with email format.
+        else {
+            definedRegisterUserName=UserName+"@firebase.com";
+        }
+
+        auth.signInWithEmailAndPassword(definedRegisterUserName, Password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
             public void onSuccess(AuthResult authResult) {
                 Toast.makeText(LogIn.this, "LogIn successful",Toast.LENGTH_SHORT).show();

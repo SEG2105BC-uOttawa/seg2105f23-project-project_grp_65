@@ -22,6 +22,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+
 public class MainActivity extends AppCompatActivity {
     public static final String TEXT = "com.example.seg2105f23_project_project_grp_65.EXTRA_TEXT"; // Variable for the text
 
@@ -32,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     EditText PasswordInput; // Variable for the Password input
     RadioGroup radioGroup ; // Variable for the RadioGroup
     RadioButton adminRadio; // Variable for the Admin radioButton
-    RadioButton eventOrganiserRadio; // Variable for the Event orginiser radioButton
+    RadioButton eventOrganiserRadio; // Variable for the Event organiser radioButton
     RadioButton participantRadio; // Variable for the Participant radioButton
     FirebaseAuth mAuth;
 
@@ -97,12 +101,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void registerUser(String registerUserName, String registerPassword) {
-        mAuth.createUserWithEmailAndPassword(registerUserName, registerPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
+        //Check if user inputs a valid email format username
+        String regex = "^[a-zA-Z0-9_]+[a-zA-Z0-9_.]*@[a-zA-Z0-9_-]+\\.[a-zA-Z0-9-.]+$";
+        Pattern pattern = Pattern.compile(regex, Pattern.UNICODE_CASE);
+        Matcher matcher = pattern.matcher(registerUserName);
+
+        String definedRegisterUserName;
+        //If so, continue to pass the registerUserName string
+        if (matcher.matches()) {
+            definedRegisterUserName=registerUserName;
+        }
+        //If not, create a dummy email suffix to register, since firebase only accept username with email format.
+        else {
+            definedRegisterUserName=registerUserName+"@firebase.com";
+        }
+
+        //Continue to register process
+        mAuth.createUserWithEmailAndPassword(definedRegisterUserName, registerPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     Toast.makeText(MainActivity.this, "Account created",Toast.LENGTH_SHORT).show();
-                    databaseReference.child("users").child(registerPassword).child("Username").setValue(registerUserName);
+                    databaseReference.child("users").child(registerPassword).child("Username").setValue(definedRegisterUserName);
                     openActivity2(null);
                 }
                 else {
@@ -119,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
     // This method is to open MainActivity2
     //  Is the OnCreate method for the register button
 
-    public void openActivity2(View view2){ // This is called by the oncreate
+    public void openActivity2(View view2){ // This is called by the OnCreate
         String activity ="";
 
         int selectedRadioId = radioGroup.getCheckedRadioButtonId();
