@@ -19,4 +19,8 @@ public class RoadStageRace extends Events {
     public void setLevel(Levels level) {
         super.setLevel(level);
     }
+    @Override
+    public void setFees(float fees) {
+        super.setFees(fees);
+    }
 }

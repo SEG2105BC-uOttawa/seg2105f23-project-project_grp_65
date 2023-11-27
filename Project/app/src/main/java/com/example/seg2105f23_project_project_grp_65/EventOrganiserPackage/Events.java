@@ -5,6 +5,7 @@ import java.util.Calendar;
 public class Events {
     Calendar start; //starts and ends of dates so they are calendar
     Calendar end;
+    Calendar date;
     String[] locations;
     Levels level;
     float fees;
@@ -13,6 +14,9 @@ public class Events {
     }
     public void setEnd(Calendar end){ //sets end day
         this.end = end;
+    }
+    public void setDate(Calendar date){
+        this.date = date;
     }
     public void setLocations(String[] locations){ //sets the location
         this.locations = locations;
