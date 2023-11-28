@@ -22,7 +22,7 @@ public class Administrator extends AppCompatActivity {
 
         adminNameUser = findViewById(R.id.Name_User2);
 
-        String message = "Welcome"+ Username+ "! You are logged in as an Administrator."; //The message that the Textview shows
+        String message = "Welcome "+ Username+ "! You are logged in as an Administrator."; //The message that the Textview shows
         adminNameUser.setText(message); // Set the message of textview
     }
 
