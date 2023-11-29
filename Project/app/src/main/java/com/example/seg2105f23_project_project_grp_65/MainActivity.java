@@ -66,9 +66,6 @@ public class MainActivity extends AppCompatActivity {
 
         databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://seg2105-project-db-default-rtdb.firebaseio.com/");
 
-
-
-
          register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) { // Register button
