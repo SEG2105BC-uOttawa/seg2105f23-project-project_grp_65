@@ -11,4 +11,4 @@ Name: Roy Rui                   Student#: 300176548
 Name: Amélia Spacek             Student#: 300098540
 
 For deliverable 2, just create a new account in the format this@that.com (Firebase email authentication thing)
-If that doesn't work, sign in with this email/password combo: sherman.0477@gmail.com/ihateseg1234
+Register first and the log in.
