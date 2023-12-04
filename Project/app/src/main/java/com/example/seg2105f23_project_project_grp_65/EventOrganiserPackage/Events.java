@@ -6,6 +6,7 @@ public class Events {
     Calendar start; //starts and ends of dates so they are calendar
     Calendar end;
     Calendar date;
+    
     String[] locations;
     Levels level;
     float fees;
