@@ -13,10 +13,5 @@ Name: Amélia Spacek             Student#: 300098540
 For deliverable 2, just create a new account in the format this@that.com (Firebase email authentication thing)
 Register first and the log in.
 
-To do:
-  -search for cycling club
-  -participants join events
-  -eliminate discrepencies between code and UML
-  -new app logo :)
-  -10 test cases
+
   -
