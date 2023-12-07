@@ -94,6 +94,7 @@ public class LogIn extends AppCompatActivity {
             @Override
             public void onSuccess(AuthResult authResult) {
                 Toast.makeText(LogIn.this, "LogIn successful",Toast.LENGTH_SHORT).show();
+
                 openUser(activity);
             }
         });

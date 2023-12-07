@@ -21,6 +21,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.regex.Matcher;
@@ -43,12 +44,13 @@ public class MainActivity extends AppCompatActivity {
 
     // creating a variable for our
     // Firebase Database.
-    FirebaseDatabase firebaseDatabase;
-
     // creating a variable for our Database
     // Reference for Firebase.
     DatabaseReference databaseReference;
-    DatabaseReference accesType;
+    FirebaseFirestore accesType;
+    DocumentReference docReference;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
         databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://seg2105-project-db-default-rtdb.firebaseio.com/");
         accesType = FirebaseFirestore.getInstance();
+        docReference = accesType.document("My firstnote");
 
 
          register.setOnClickListener(new View.OnClickListener() {
@@ -144,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void openActivity2(View view2){ // This is called by the OnCreate
         String activity ="";
-        accesType = FirebaseFirestore.
+        accesType = FirebaseFirestore.getInstance();
 
         int selectedRadioId = radioGroup.getCheckedRadioButtonId();
 
