@@ -4,6 +4,10 @@ import java.util.Calendar;
 
 public class RoadRace extends Events{
 
+    public RoadRace(Calendar start, Calendar end, Calendar date, String[] location, Levels level, float fees) {
+        super(start, end, date, location, level, fees);
+    }
+
     @Override
     public void setDate(Calendar date) {
         super.setDate(date);

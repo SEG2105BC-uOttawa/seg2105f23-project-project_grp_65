@@ -7,6 +7,10 @@ public class TimeTrial extends Events{
     double startTime;
     double endTime;
 
+    public TimeTrial(Calendar start, Calendar end, Calendar date, String[] location, Levels level, float fees) {
+        super(start, end, date, location, level, fees);
+    }
+
     @Override
     public void setDate(Calendar date) {
         super.setDate(date);
