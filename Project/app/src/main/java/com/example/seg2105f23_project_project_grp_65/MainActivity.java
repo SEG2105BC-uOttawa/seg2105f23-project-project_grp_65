@@ -21,6 +21,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     // creating a variable for our Database
     // Reference for Firebase.
     DatabaseReference databaseReference;
+    DatabaseReference accesType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
         LogInButton = findViewById(R.id.LoginButton);
 
         databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://seg2105-project-db-default-rtdb.firebaseio.com/");
+        accesType = FirebaseFirestore.getInstance();
+
 
          register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else{
                     registerUser(UserName,Password);
+
                 }
             }
         });
@@ -139,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void openActivity2(View view2){ // This is called by the OnCreate
         String activity ="";
+        accesType = FirebaseFirestore.
 
         int selectedRadioId = radioGroup.getCheckedRadioButtonId();
 
